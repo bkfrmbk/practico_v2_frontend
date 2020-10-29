@@ -1,6 +1,6 @@
 //import libraries
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
 const PracticeIndexScreen = (props) => {
@@ -9,6 +9,13 @@ const PracticeIndexScreen = (props) => {
             <Text>
                 The Practice Index Screen
             </Text>
+            <Button 
+                title="New Practice"
+                onPress={() =>
+                    props.navigation.navigate({
+                        routeName: 'New'
+                    }) 
+            } />
         </View>
     )
 };
