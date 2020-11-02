@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
 
 import MainNav from './navigation/MainNav';
+import PracticesReducer from './store/reducers/PracticesReducer';
+
+const rootReducer = combineReducers({
+  practices: PracticesReducer
+});
+
+const store = createStore(rootReducer);
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -25,6 +34,8 @@ export default function App() {
   }
   
   return (
+    <Provider store={store}>
       <MainNav />
+    </Provider>
     ); 
 }

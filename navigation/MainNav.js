@@ -27,9 +27,6 @@ const PracticeNav = createStackNavigator({
     },
     Show: {
         screen: PracticeShowScreen,
-        navigationOptions: {
-            headerTitle: 'Current Practice', 
-        }
     }
 })
 
@@ -65,6 +62,12 @@ const BottomTabNav = createBottomTabNavigator({
         activeTintColor: Colors.lightTurq
     }
 });
+
+PracticeShowScreen.navigationOptions = navData => {
+    return {
+        headerTitle: navData.navigation.getParam('practiceTitle')
+    }
+}
 
 //make this component available to the app
 export default createAppContainer(BottomTabNav);
