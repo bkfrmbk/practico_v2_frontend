@@ -9,12 +9,8 @@ import ProductCard from '../../components/PracticeCard';
 // create a component
 const PracticeIndexScreen = (props) => {
     const practices = useSelector(state => state.practices.currentPractices)
-    console.log(practices);
     return (
         <View style={styles.container}>
-            <Text>
-                The Practice Index Screen
-            </Text>
             <FlatList
                 data={practices}
                 renderItem={
