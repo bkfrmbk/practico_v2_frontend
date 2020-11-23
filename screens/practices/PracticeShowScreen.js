@@ -1,40 +1,35 @@
 //import libraries
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import { ButtonGroup } from 'react-native-elements';
 
 import TimerComp from '../../components/TimerComp';
+import CalendarComp from '../../components/CalendarComp';
+import GraphComp from '../../components/GraphComp';
+import PhotoComp from '../../components/PhotoComp';
 
 // create a component
 const PracticeShowScreen = (props) => {
+    const [ practiceView, setPracticeView ] = useState(2);
+    const buttons = ['Calendar', 'Graphs', 'Photos']
+    const selectedIndex = practiceView;
+
+    const practiceViewOptions = [<CalendarComp />, <GraphComp />, <PhotoComp />]
+
     return (
         <View style={styles.container}>
             <View style={styles.stopWatchContainer}>
                 <TimerComp time={Date.now()} />
             </View>
+            <ButtonGroup
+                onPress={(index) => setPracticeView(index) }
+                selectedIndex={selectedIndex}
+                buttons={buttons}
+                containerStyle={{height: 40}}
+            />
             <View style={styles.calendarContainer}>
-                <CalendarList  
-                      markingType={'custom'}
-                      markedDates={{
-                        '2020-11-28': {
-                          customStyles: {
-                            container: {
-                              backgroundColor: 'green'
-                            },
-                            text: {
-                              color: 'black',
-                              fontWeight: 'bold'
-                            }
-                          }
-                        },
-                        '2020-12-21': {startingDay: true, color: '#50cebb', textColor: 'white'},
-                        '2020-12-22': {color: '#70d7c7', textColor: 'white'},
-                        '2020-12-23': {color: '#70d7c7', textColor: 'white', marked: true, dotColor: 'white'},
-                        '2020-12-24': {color: '#70d7c7', textColor: 'white'},
-                        '2020-12-25': {endingDay: true, color: '#50cebb', textColor: 'white'},
-                      }}
-                />
+                {practiceViewOptions[selectedIndex]}
             </View>
         </View>
     )
