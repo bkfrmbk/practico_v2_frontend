@@ -4,11 +4,14 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer,  } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Ionicons } from '@expo/vector-icons';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import ProfileScreen from '../screens/user/ProfileScreen';
 import PracticeIndexScreen from '../screens/practices/PracticeIndexScreen';
 import NewPracticeScreen from '../screens/practices/NewPracticeScreen';
 import PracticeShowScreen from '../screens/practices/PracticeShowScreen';
+import CustomHeaderButton from '../components/CustomHeaderButton';
 
 import Colors from '../constants/Colors';
 
@@ -65,9 +68,34 @@ const BottomTabNav = createBottomTabNavigator({
 
 PracticeShowScreen.navigationOptions = navData => {
     return {
-        headerTitle: navData.navigation.getParam('practiceTitle')
+        headerTitle: navData.navigation.getParam('practiceTitle'),
+        headerRight: () => 
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item 
+                    title='FAV'
+                    iconName={'ios-cog'}
+                    onPress={() => {}}
+                />
+        </HeaderButtons>
     }
-}
+};
+
+const PracticeSettings = createDrawerNavigator({
+    thingOne: {
+        screen: NewPracticeScreen,
+        navigationOptions: {
+            drawerLabel: 'Meals'
+        }
+    },
+    thingTwo: PracticeIndexScreen  
+}, {
+    contentOptions: {
+        activeTintColor: Colors.highlight,
+        labelStyle: {
+            fontFamily: 'open-sans-bold'
+        }
+    }
+});
 
 //make this component available to the app
 export default createAppContainer(BottomTabNav);

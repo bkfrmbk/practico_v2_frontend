@@ -11,7 +11,7 @@ import PhotoComp from '../../components/PhotoComp';
 
 // create a component
 const PracticeShowScreen = (props) => {
-    const [ practiceView, setPracticeView ] = useState(2);
+    const [ practiceView, setPracticeView ] = useState(0);
     const buttons = ['Calendar', 'Graphs', 'Photos']
     const selectedIndex = practiceView;
 

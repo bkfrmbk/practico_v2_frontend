@@ -3164,7 +3164,7 @@ inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
-invariant@^2.2.2, invariant@^2.2.4:
+invariant@>=2, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -4840,6 +4840,11 @@ react-native-gesture-handler@~1.7.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-images-collage@^3.2.6:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/react-native-images-collage/-/react-native-images-collage-3.2.6.tgz#80c3e13ac3b1a25ec787eb0f14b93277c7e259d1"
+  integrity sha512-5sqqY9tUoaMZYVU6ufb6E85YVYfhMZpH59A1eYcUvAI3Wt7+zBamA6YK2yeVUpcvEHAwdFlYkSaw9H2nLlx0VQ==
+
 react-native-iphone-x-helper@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.0.tgz#84fd13e6b89cc3aa4daa80ec514bf15cb724d86d"
@@ -4972,6 +4977,18 @@ react-native-web@~0.13.12:
     stacktrace-parser "^0.1.3"
     use-subscription "^1.0.0"
     whatwg-fetch "^3.0.0"
+
+react-navigation-drawer@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.6.0.tgz#9f04ca26d074891af73d898bb9587a5e7aa879da"
+  integrity sha512-GvHHqH8Aw9yRpJ0xc/7sPxRoGs0CZu/01THRfwY+qzrP3mP/V0GeFnL5Y2+EFd5SLrKjbQho8GmP9SEX7xVrig==
+
+react-navigation-header-buttons@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-navigation-header-buttons/-/react-navigation-header-buttons-6.0.0.tgz#6e58d58b8aa6e2d058729ca8dad52c5ee5742f47"
+  integrity sha512-m9pbT7dpi0PWqInhepIovkyYatb08Oz4l9zDx6Qt43QqO/jPRhIHtS15NNGziam+XiAn/9gHyOTKe3Fsh0BqYA==
+  dependencies:
+    invariant ">=2"
 
 react-navigation-stack@^2.9.0:
   version "2.9.0"
