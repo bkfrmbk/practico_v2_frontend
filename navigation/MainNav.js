@@ -12,6 +12,7 @@ import PracticeIndexScreen from '../screens/practices/PracticeIndexScreen';
 import NewPracticeScreen from '../screens/practices/NewPracticeScreen';
 import PracticeShowScreen from '../screens/practices/PracticeShowScreen';
 import CustomHeaderButton from '../components/CustomHeaderButton';
+import NewsFeedScreen from '../screens/user/NewsFeedScreen';
 
 import Colors from '../constants/Colors';
 
@@ -34,6 +35,19 @@ const PracticeNav = createStackNavigator({
 })
 
 const BottomTabNav = createBottomTabNavigator({
+    Practices: {
+        screen: PracticeNav,
+        navigationOptions: {
+            tabBarIcon: (tabInfo) => {
+                return (
+                    <Ionicons 
+                        name='ios-timer'
+                        size={25}
+                        color={tabInfo.tintColor}
+                    />)
+            }
+        }
+    },
     Profile: {
         screen: ProfileScreen,
         navigationOptions: {
@@ -47,13 +61,13 @@ const BottomTabNav = createBottomTabNavigator({
             }
         }
     },
-    Practices: {
-        screen: PracticeNav,
+    Feed: {
+        screen: NewsFeedScreen,
         navigationOptions: {
             tabBarIcon: (tabInfo) => {
                 return (
                     <Ionicons 
-                        name='ios-timer'
+                        name='ios-contacts'
                         size={25}
                         color={tabInfo.tintColor}
                     />)
