@@ -5,7 +5,7 @@ import { createAppContainer,  } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Ionicons } from '@expo/vector-icons';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer';
 
 import ProfileScreen from '../screens/user/ProfileScreen';
 import PracticeIndexScreen from '../screens/practices/PracticeIndexScreen';
@@ -67,7 +67,7 @@ const BottomTabNav = createBottomTabNavigator({
             tabBarIcon: (tabInfo) => {
                 return (
                     <Ionicons 
-                        name='ios-contacts'
+                        name='ios-people'
                         size={25}
                         color={tabInfo.tintColor}
                     />)
