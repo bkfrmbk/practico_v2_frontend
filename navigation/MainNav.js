@@ -11,6 +11,7 @@ import ProfileScreen from '../screens/user/ProfileScreen';
 import PracticeIndexScreen from '../screens/practices/PracticeIndexScreen';
 import NewPracticeScreen from '../screens/practices/NewPracticeScreen';
 import PracticeShowScreen from '../screens/practices/PracticeShowScreen';
+import PracticeSettingsScreen from '../screens/practices/PracticeSettingsScreen';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import NewsFeedScreen from '../screens/user/NewsFeedScreen';
 
@@ -31,6 +32,18 @@ const PracticeNav = createStackNavigator({
     },
     Show: {
         screen: PracticeShowScreen,
+    },
+    Settings: {
+        screen: PracticeSettingsScreen
+    }
+})
+
+const UserNav = createStackNavigator({
+    User: {
+        screen: ProfileScreen
+    },
+    Settings: {
+        screen: UserSettingsScreen
     }
 })
 
@@ -88,28 +101,29 @@ PracticeShowScreen.navigationOptions = navData => {
                 <Item 
                     title='FAV'
                     iconName={'ios-cog'}
-                    onPress={() => {}}
+                    onPress={() => {
+                        navData.navigation.navigate('Settings')
+                    }}
                 />
         </HeaderButtons>
     }
 };
 
-const PracticeSettings = createDrawerNavigator({
-    thingOne: {
-        screen: NewPracticeScreen,
-        navigationOptions: {
-            drawerLabel: 'Meals'
-        }
-    },
-    thingTwo: PracticeIndexScreen  
-}, {
-    contentOptions: {
-        activeTintColor: Colors.highlight,
-        labelStyle: {
-            fontFamily: 'open-sans-bold'
-        }
+ProfileScreen.navigationOptions = navData => {
+    return {
+        headerTitle: navData.navigation.getParam('practiceTitle'),
+        headerRight: () => 
+            <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item 
+                    title='FAV'
+                    iconName={'ios-cog'}
+                    onPress={() => {
+                        navData.navigation.navigate('Settings')
+                    }}
+                />
+        </HeaderButtons>
     }
-});
+};
 
 //make this component available to the app
 export default createAppContainer(BottomTabNav);
